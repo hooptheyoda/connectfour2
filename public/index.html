@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Draagble Chat Example</title>
+    <link rel="stylesheet" href="index.css">
+    <script src = "/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div id="btnIndexContainer">
+      <h1>Connect 4</h1>
+      <button id="directions" class="btn" onclick="directions()">Directions</button>
+      <button id="start" class="btn"  onclick="startNew()">Start New Game</button>
+    </div>
+
+    <div id="btnGameContainer" class="hidden">
+      <h1>Connect 4</h1>
+      <button id="directions" class="btn" onclick="directions()">Directions</button>
+      <button id="gameT1" class="btnC">2 Users Samer Computer</button>
+      <button id="gameT2" class="btnC" onclick="gameT2()">User vs User </button>
+      <button id="gameT3" class="btnC">User vs Computer</button>
+    </div>
+
+    <div id="chatBox" class="hidden" >
+      <div id= "error-container"></div>
+       <input id= "name" type= "text" name= "name" value= ""
+          placeholder= "Enter your name!">
+       <button type= "button" name= "button" onclick= "setUsername()">
+          Let me Enter!
+       </button>
+    </div>
+
+
+    <div id="tester1" onclick="textplace()"></div>
+
+
+    <div id="notice"> </div>
+    <div id="draggable3">
+    <div id="draggable4">
+    <div id="game2Name" >
+      <div id="output"></div>
+    </div>
+    </div>
+    </div>
+
+  <div id="messagebox" class="hidden">
+    <div id="draggable">
+    <div id="draggable2">
+
+  <div id="mC">
+      <div id="mCH">
+          <h2 id="userNameText">Username</h2>
+          <a id="leaveRoom"> Leave Room</a>
+  <!--       <button id="leaveRoom" type="button" onclick= "leaveRoom()">Leave Room</button> -->
+        </div>
+
+    <div id= "message-container">
+        <div id= "messageOutput">
+      <figure>
+          <img src="http://www.gravatar.com/avatar/%7Bmd5email%7D?s=50&d=mm" alt="mm" />
+        </figure>
+    <div id= "messageOCH">
+      <header>
+      <h4>Username <time>10:28pm</time></h4>
+      </header>
+    <p>stuff is said in here muhahahahaha</p>
+      </div>
+  </div>
+  </div>
+
+    <div id= "inputContainer">
+    <input type = "text" id= "message"  placeholder= "Enter message">
+    <button type="button"  id= "msubmit" onclick= "sendMessage()">Send</button>
+  </div>
+  </div>
+  </div>
+
+  <div id="userStuff">
+
+  </div>
+  </div>
+  </div>
+    <script src="main.js"></script>
+    <script src="drag.js"></script>
+    <script src="drag3.js"></script>
+    <script src="test.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>
