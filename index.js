@@ -94,6 +94,7 @@ io.on('connection', function(socket) {
      currentRoom(data);
     // returns currUser
      currentUser(data);
+     // returns roomup
      getRoomPlayers(currUser,roomu);
      io.sockets.in("room-"+roomu).emit('play', data,roomup);
    });
