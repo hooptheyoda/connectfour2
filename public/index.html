@@ -3,87 +3,77 @@
   <head>
     <meta charset="utf-8">
     <title>Draagble Chat Example</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/css/index.css">
     <script src = "/socket.io/socket.io.js"></script>
   </head>
   <body>
+    <!-- ________________PAGE 1 INDEX PAGE________________  -->
     <div id="btnIndexContainer">
-      <h1>Connect 4</h1>
-      <button id="directions" class="btn" onclick="directions()">Directions</button>
-      <button id="start" class="btn"  onclick="startNew()">Start New Game</button>
+      <h1 id="connect">Connect 4</h1>
+      <button id="directions" class="btn btnI" onclick="directions()">Directions</button>
+      <button id="start" class="btn btnI"  onclick="startNew()">Start New Game</button>
     </div>
-
+    <!-- ________________PAGE 2 CHOOSE GAME PAGE________________  -->
     <div id="btnGameContainer" class="hidden">
-      <h1>Connect 4</h1>
-      <button id="directions" class="btn" onclick="directions()">Directions</button>
-      <button id="gameT1" class="btnC">2 Users Samer Computer</button>
-      <button id="gameT2" class="btnC" onclick="gameT2()">User vs User </button>
-      <button id="gameT3" class="btnC">User vs Computer</button>
+      <h1 id="connect">Connect 4</h1>
+      <button id="gameT1" class="btnI btnC"></button>
+      <button id="gameT2" class="btnI btnC" onclick="gameT2()"></button>
+      <button id="gameT3" class="btnI btnC">User vs Computer</button>
     </div>
-
-    <div id="chatBox" class="hidden" >
+    <!-- ________________PAGE 3  ENTER USERNAME PAGE________________  -->
+    <div id="enterusername" class="hidden col-3" >
       <div id= "error-container"></div>
        <input id= "name" type= "text" name= "name" value= ""
           placeholder= "Enter your name!">
-       <button type= "button" name= "button" onclick= "setUsername()">
+       <button id="enterName" type= "button" name= "button" onclick= "setUsername()">
           Let me Enter!
        </button>
     </div>
-
-
-    <div id="tester1" onclick="textplace()"></div>
-
-
-    <div id="notice"> </div>
-    <div id="draggable3">
-    <div id="draggable4">
+    <!-- ________________PAGE 4 PART 1/2 CONNECT 4 GAME PAGE________________  -->
+    <div id="game">
+    <div id="welcome"></div>
+    <div id="notice"></div>
     <div id="game2Name" >
+      <div id="pointereventsnone" class="hidden"></div>
+      <div id="gameover"></div>
       <div id="output"></div>
     </div>
     </div>
-    </div>
-
+    <!-- ________________PAGE 4 PART 2/2 CONNECT 4 GAME PAGE________________  -->
   <div id="messagebox" class="hidden">
     <div id="draggable">
     <div id="draggable2">
-
-  <div id="mC">
-      <div id="mCH">
+      <div id="mC">
+        <div id="mCH">
           <h2 id="userNameText">Username</h2>
-          <a id="leaveRoom"> Leave Room</a>
-  <!--       <button id="leaveRoom" type="button" onclick= "leaveRoom()">Leave Room</button> -->
+          <button id="leaveRoom" type="button" onclick= "leaveRoom()">Leave Room</button>
         </div>
 
-    <div id= "message-container">
-        <div id= "messageOutput">
-      <figure>
-          <img src="http://www.gravatar.com/avatar/%7Bmd5email%7D?s=50&d=mm" alt="mm" />
-        </figure>
-    <div id= "messageOCH">
-      <header>
-      <h4>Username <time>10:28pm</time></h4>
-      </header>
-    <p>stuff is said in here muhahahahaha</p>
+        <div id= "message-container">
+            <div id= "messageOutput">
+          <figure>
+            <img src="http://www.gravatar.com/avatar/%7Bmd5email%7D?s=50&d=mm" alt="mm" />
+          </figure>
+        <div id= "messageOCH">
+           <header>
+             <h4>Username <time>10:28pm</time></h4>
+           </header>
+           <p>stuff is said in here muhahahahaha</p>
+        </div>
       </div>
-  </div>
-  </div>
+      </div>
 
-    <div id= "inputContainer">
-    <input type = "text" id= "message"  placeholder= "Enter message">
-    <button type="button"  id= "msubmit" onclick= "sendMessage()">Send</button>
+      <div id= "inputContainer">
+        <input type = "text" id= "message"  placeholder= "Enter message">
+        <button type="button"  id= "msubmit" onclick= "sendMessage()">Send</button>
+      </div>
+    </div>
   </div>
   </div>
-  </div>
-
-  <div id="userStuff">
-
-  </div>
-  </div>
-  </div>
-    <script src="main.js"></script>
-    <script src="drag.js"></script>
-    <script src="drag3.js"></script>
-    <script src="test.js"></script>
-    <script src="game.js"></script>
+</div> <!--END MESSAGEBOX  -->
+    <!-- ________________ JAVASCRIPT ________________  -->
+      <script src="/js/main.js"></script>
+      <script src="/js/drag.js"></script>
+      <script src="/js/game.js"></script>
   </body>
 </html>

@@ -1,21 +1,24 @@
+// --------------------- DECLARE VARIABLES --------------
 var indexPage = document.getElementById('indexPage');
-var chatBox = document.getElementById('chatBox');
+var enterusername = document.getElementById('enterusername');
 var start = document.getElementById('start');
 var messagebox = document.getElementById('messagebox');
-
 var btnIC = document.getElementById('btnIndexContainer');
 var btnGC = document.getElementById('btnGameContainer');
 var start = document.getElementById('start');
 var game2Name = document.getElementById('game2Name');
 var mC = document.getElementById('mC');
+var pointereventsnone = document.getElementById('pointereventsnone');
+var game2Name = document.getElementById('game2Name');
+var game = document.getElementById('game');
 
-
+// ---------------------- DECLARE SOCKET VARIABLES -----------------
 var socket = io();
 var user;
 
+// ---------------------- MAIN FUNCTIONS -----------------
 // Ask User if Sure they want to refresh page
 window.onbeforeunload = function(){
-    // leaveRoom();
     return confirm("Are you sure you want to close the window?");
 }
 
@@ -26,19 +29,15 @@ function startNew() {
 
 function gameT2() {
   btnGC.classList.add('hidden');
-  chatBox.classList.remove('hidden');
+  enterusername.classList.remove('hidden');
 }
 
 // Enter Chat Room
 function enterRoom() {
-  chatBox.classList.add('hidden');
+  enterusername.classList.add('hidden');
   game2Name.classList.remove('hidden');
   messagebox.classList.remove('hidden');
-}
-
-
-function textplace(){
-  socket.emit('testing1', {user: user});
+  game2Name.classList.remove('hidden');
 }
 
 //Set Username
@@ -52,16 +51,19 @@ function sendMessage() {
   if(msg) {
     socket.emit('msg', {message: msg, user: user});
     }
+    console.log("message is sending button works");
 }
 
 // Leave Chat Room
 function leaveRoom(){
   socket.emit('leaveRoom', {user: user});
-  chatBox.classList.add('hidden');
+  enterusername.classList.add('hidden');
+  game.classList.add('hidden');
   messagebox.classList.add('hidden');
-  indexPage.classList.remove('hidden');
+  btnIC.classList.remove('hidden');
 };
 
+// ----------------- SOCKET IO ON CLIENT (USER OUTPUTS) --------------
 // Check User Exists
 socket.on('userExists', function(data) {
   document.getElementById('error-container').innerHTML = data;
@@ -73,37 +75,36 @@ socket.on('userSet', function(data) {
   userId = data.userId;
   room = data.userRM;
   player = data.player;
-  chatBox.classList.add('hidden');
+  enterusername.classList.add('hidden');
   messagebox.classList.remove('hidden');
 
   if(player === 1) {
+    document.getElementById('welcome').innerHTML = 'Player 1'
     document.getElementById('notice').innerHTML = 'Welcome Player 1! Waiting for Player 2...'
   } else {
-    document.getElementById('notice').innerHTML = 'Welcome Player 2!'
+    document.getElementById('welcome').innerHTML = 'Player 2'
+    document.getElementById('notice').innerHTML =  ' Waiting for Player1 to make a move';
+    pointereventsnone.classList.remove('hidden');
     socket.emit('game', {user: user});
   }
-
-
-  // document.getElementById('userStuff').innerHTML +=
-  // '<div>'
-  // + 'username ' + user
-  // + 'userId ' + userId
-  // + 'room ' + room
-  // + 'player ' + player
-  // + '</div>';
 });
 
-// Get New Message
+// Makes the Remaining users Leave Room
 socket.on('userLeft', function(data) {
   if(user) {
     document.getElementById('message-container').innerHTML += '<div><b>' +
-        data.user + '</b>: ' + 'has left this chat session.' + '</div>'
+        data.user + '</b>: ' + 'has left this game session. END OF GAME!' + '</div>';
+        setTimeout(function() {
+        enterusername.classList.add('hidden');
+        messagebox.classList.add('hidden');
+        btnIC.classList.remove('hidden');
+        game.innerHTML = '';
+        document.getElementById('message-container').innerHTML = '';
+        socket.emit('usersLeaveRoom', {user: user});
+      }, 20000)
   }
-  // wait 30 seconds then leave
-  // on indexpage write  chat ended when user left session
-});
 
-// End Chat
+});
 
 // Get New Message
 socket.on('newmsg', function(data) {
@@ -121,12 +122,6 @@ socket.on('newmsg', function(data) {
       +'</div>'
       +'</div>';
  }
-});
-
-socket.on('newtesting1', function(data) {
-  // if(user) {
-    document.getElementById('tester1').style.backgroundColor = '#f00';
-  // }
 });
 
 // Show data of Room Connection
