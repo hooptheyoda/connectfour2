@@ -11,4 +11,9 @@
   * Socket io
   * Express
   * Node js
+ ## Future Updates, Coming Soon
+  * User vs Computer
+  * User can pick avatar
+  * User can choose color they want div to be
+  * User can choose between clickable div or slider div 
  
