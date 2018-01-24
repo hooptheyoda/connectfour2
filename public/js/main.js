@@ -11,10 +11,13 @@ var mC = document.getElementById('mC');
 var pointereventsnone = document.getElementById('pointereventsnone');
 var game2Name = document.getElementById('game2Name');
 var game = document.getElementById('game');
+var contain = document.getElementById('contain');
 
 // ---------------------- DECLARE SOCKET VARIABLES -----------------
 var socket = io();
 var user;
+
+
 
 // ---------------------- MAIN FUNCTIONS -----------------
 // Ask User if Sure they want to refresh page
@@ -25,6 +28,16 @@ window.onbeforeunload = function(){
 function startNew() {
   btnIC.classList.add('hidden');
   btnGC.classList.remove('hidden');
+}
+
+function directions() {
+  btnIC.classList.add('hidden');
+  contain.classList.remove('hidden');
+}
+
+function goback() {
+  contain.classList.add('hidden');
+  btnIC.classList.remove('hidden');
 }
 
 function gameT2() {

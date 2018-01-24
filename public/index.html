@@ -7,20 +7,29 @@
     <script src = "/socket.io/socket.io.js"></script>
   </head>
   <body>
-    <!-- ________________PAGE 1 INDEX PAGE________________  -->
+    <!-- ________________PAGE 1 1/2 INDEX PAGE________________  -->
     <div id="btnIndexContainer">
       <h1 id="connect">Connect 4</h1>
       <button id="directions" class="btn btnI" onclick="directions()">Directions</button>
       <button id="start" class="btn btnI"  onclick="startNew()">Start New Game</button>
     </div>
+
+    <!-- ________________PAGE 1 2/2 DIRECTIONS PAGE________________  -->
+    <div id="contain" class="hidden">
+      <button id="gob" onclick="goback()">Go Back</button>
+      <div id="direct">
+      </div>
+    </div>
+
     <!-- ________________PAGE 2 CHOOSE GAME PAGE________________  -->
     <div id="btnGameContainer" class="hidden">
       <h1 id="connect">Connect 4</h1>
-      <button id="gameT1" class="btnI btnC"></button>
+      <button id="gameT1" class="btnI btnC" onclick="startgameT1()"></button>
       <button id="gameT2" class="btnI btnC" onclick="gameT2()"></button>
-      <button id="gameT3" class="btnI btnC">User vs Computer</button>
+      <button id="gameT3" class="btnI btnC" onclick="gameT3()"></button>
     </div>
-    <!-- ________________PAGE 3  ENTER USERNAME PAGE________________  -->
+
+    <!-- ________________PAGE 3 1/2 ENTER USERNAME PAGE________________  -->
     <div id="enterusername" class="hidden col-3" >
       <div id= "error-container"></div>
        <input id= "name" type= "text" name= "name" value= ""
@@ -29,6 +38,42 @@
           Let me Enter!
        </button>
     </div>
+
+
+    <!-- ________________PAGE 3 2/2 ENTER USERNAME PAGE________________  -->
+    <div id="enterplayername"  class="hidden">
+      <div id="enternamep1">
+         <input id= "namep1" class="etext" type="text" name="name1" value= ""
+            placeholder= "Enter name PLayer 1">
+         <button id="enterName1" class="ename" onclick= "setplayername1()">
+            Let me Enter!
+         </button>
+      </div>
+      <div id="np1" class="hidden">
+        <h1>Player 1</h1>
+        <br>
+        <h2 id="p1"></h2>
+      </div>
+
+      <div id="output2"></div>
+
+      <h1 id="p0"></h1>
+
+      <div id="enternamep2" class="hidden">
+         <input id="namep2" class="etext" type="text" name="name2" value= ""
+            placeholder= "Enter name PLayer 2">
+         <button id="enterName2" class="ename" onclick= "setplayername2()">
+            Let me Enter!
+         </button>
+      </div>
+      <div id="np2" class="hidden">
+        <h1>Player 2</h1>
+        <br>
+        <h2 id="p2"></h2>
+      </div>
+    </div>
+
+
     <!-- ________________PAGE 4 PART 1/2 CONNECT 4 GAME PAGE________________  -->
     <div id="game">
     <div id="welcome"></div>
@@ -48,7 +93,7 @@
           <h2 id="userNameText">Username</h2>
           <button id="leaveRoom" type="button" onclick= "leaveRoom()">Leave Room</button>
         </div>
-
+  <div id="output2"></div>
         <div id= "message-container">
             <div id= "messageOutput">
           <figure>
@@ -71,10 +116,14 @@
   </div>
   </div>
 </div> <!--END MESSAGEBOX  -->
+  <!-- ________________USER VERSE COMPUTER TO BE CONTINUED________________  -->
+    <h1 id="uvp"></h1>
+
 <div id="contributions" class="hidden">
   Free Vector Design by: <a rel="nofollow" href="https://www.vecteezy.com/">Vecteezy!</a>
 </div>
     <!-- ________________ JAVASCRIPT ________________  -->
+      <script src="/js/usersamecomp.js"></script>
       <script src="/js/main.js"></script>
       <script src="/js/drag.js"></script>
       <script src="/js/game.js"></script>
