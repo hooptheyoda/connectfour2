@@ -3,7 +3,7 @@
 
 ## To Run Code
    * git clone or download
-   * open project folder in node
+   * open project folder in node terminal
 ### In Terminal
    * Node Terminal: npm install
    * Node Terminal: nodemon index.js localhost:3000
