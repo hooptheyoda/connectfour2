@@ -6,7 +6,7 @@
    * open project folder in node terminal
 ### In Terminal
    * Node Terminal: npm install
-   * Node Terminal: nodemon index.js localhost:3000
+   * Node Terminal: npm start
 ## Deployed on Heroku   
    https://connect4gamerh.herokuapp.com/
 ## Code Impliments
