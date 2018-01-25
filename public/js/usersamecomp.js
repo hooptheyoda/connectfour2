@@ -83,7 +83,7 @@ function getWinnder(r,c,i){
      alert("Player 1 Wins!!!!!");
      document.getElementById('p0').innerHTML = 'Player 1 Wins!!!!!';
      setTimeout(function() {
-       document.getElementById('p0').innerHTML = 'In 10 Seconds this page will clear. Play Again =)';
+       document.getElementById('p0').innerHTML = 'In 10 Seconds' + '</br>' + 'this page will clear. Play Again =)';
      }, 3000);
      setTimeout(function() {
        document.getElementById('enterplayername').classList.add('hidden');

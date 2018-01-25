@@ -1,5 +1,5 @@
 # Connect Four Game
-#### Connect 4 is a multiplayer game. I created this application using socket.io for user interaction, express.js to handle the sockets and node.js for the backend. HTML5, CSS3 and JavaScript for front-end. 
+#### Connect 4 is a multiplayer game. I created this application using socket.io for user interaction, express.js to handle the sockets and node.js for the backend. HTML5, CSS3 and JavaScript for front-end.
 
 ## To Run Code
    * git clone or download
@@ -13,9 +13,8 @@
   * Socket io
   * Express
   * Node js
- ## Future Updates, Coming Soon
+## Future Updates, Coming Soon
   * User vs Computer
   * User can pick avatar
   * User can choose color they want div to be
-  * User can choose between clickable div or slider div 
- 
+  * User can choose between clickable div or slider div
