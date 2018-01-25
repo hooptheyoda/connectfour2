@@ -82,23 +82,32 @@ function getWinnder(r,c,i){
    if(chkWinner(x) === 1) {
      alert("Player 1 Wins!!!!!");
      document.getElementById('p0').innerHTML = 'Player 1 Wins!!!!!';
+     setTimeout(function() {
+       document.getElementById('p0').innerHTML = 'In 10 Seconds this page will clear. Play Again =)';
+     }, 3000);
+     setTimeout(function() {
+       document.getElementById('enterplayername').classList.add('hidden');
+       document.getElementById('p0').innerHTML = '';
+       document.getElementById('p1').innerHTML = '';
+       document.getElementById('p2').innerHTML = '';
+       btnIC.classList.remove('hidden');
+     }, 10000);
    }
 
   if(chkWinner(x) === 2) {
      alert("Player 2 Wins!!!!!");
      document.getElementById('p0').innerHTML = 'Player 2 Wins!!!!!';
+     setTimeout(function() {
+       document.getElementById('p0').innerHTML = 'In 10 Seconds this page will clear. Play Again =)';
+     }, 3000);
+     setTimeout(function() {
+       document.getElementById('enterplayername').classList.add('hidden');
+       document.getElementById('p0').innerHTML = '';
+       document.getElementById('p1').innerHTML = '';
+       document.getElementById('p2').innerHTML = '';
+       btnIC.classList.remove('hidden');
+     }, 10000);
    }
-
-   setTimeout(function() {
-     document.getElementById('p0').innerHTML = 'In 10 Seconds this page will clear. Play Again =)';
-   }, 3000);
-   setTimeout(function() {
-     document.getElementById('enterplayername').classList.add('hidden');
-     document.getElementById('p0').innerHTML = '';
-     document.getElementById('p1').innerHTML = '';
-     document.getElementById('p2').innerHTML = '';
-     btnIC.classList.remove('hidden');
-   }, 10000);
 }
 
 function players(r,c,i) {
