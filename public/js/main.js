@@ -17,8 +17,6 @@ var contain = document.getElementById('contain');
 var socket = io();
 var user;
 
-
-
 // ---------------------- MAIN FUNCTIONS -----------------
 // Ask User if Sure they want to refresh page
 window.onbeforeunload = function(){
@@ -33,11 +31,13 @@ function startNew() {
 function directions() {
   btnIC.classList.add('hidden');
   contain.classList.remove('hidden');
+  document.body.style.height = "auto";
 }
 
 function goback() {
   contain.classList.add('hidden');
   btnIC.classList.remove('hidden');
+  document.body.style.height = "700px";
 }
 
 function gameT2() {

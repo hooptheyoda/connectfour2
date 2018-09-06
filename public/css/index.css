@@ -58,16 +58,9 @@ input:focus {
 
 
 /* ------------------- DIRECTIONS PAGE 1 CSS  -------------- */
-#direct{
-  font-family: 'Open Sans', sans-serif;
-  position: relative;
-  background-image: url("/images/connect4directions.png");
-  background-color: white;
-  left: 20%;
-  width: 60%;
-  height: 680px;
-  box-shadow: 10px 10px 5px #aaaaaa;
-  margin: 5px 5px 5px 5px;
+.responsive {
+    width: 100%;
+    height: auto;
 }
 
 #gob{
@@ -351,6 +344,16 @@ input:focus {
 }
 .circle:hover {
   background-color:pink;
+}
+
+#output {
+  width: 100%;
+  height: auto;
+}
+
+#output2 {
+  width: 100%;
+  height: auto;
 }
 /* ------------------- CONNECT 4 GAME PAGE 4 CSS PART 3/3 -------------- */
 /* -------- DRAG CSS ----------- */
